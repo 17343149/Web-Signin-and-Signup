@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	h1	登录
+	form(method= 'post')
+		if error
+			div.error!=error  
+		.username
+			label(for='username') 用户名
+			input(id='username', name='username' value=user.username)
+			span.error
+		.password
+			label(for='password') 密码
+			input(id='password', type='password' name='password' value=user.password)
+			span.error
+		.buttons
+			input.button(type='submit' id='submit' value='登录' )
+			input.button(type='button' id='reset' value='注册' onclick='mySignup()')
+	#wrongSignin
+		p=user.temp
+
+	script(type='text/javascript' src='javascripts/signin.js')
